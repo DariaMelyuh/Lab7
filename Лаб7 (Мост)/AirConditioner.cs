@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Лаб7__Мост_
 {
-    class AirConditioner : IImplementor
+    public class AirConditioner : IImplementor
     {
         public void On()
         {
@@ -20,12 +20,14 @@ namespace Лаб7__Мост_
 
         public void SetPower(int power)
         {
-            Console.WriteLine($"Мощность кондиционера установлена ​​на {power}");
+            ArgumentNullException.ThrowIfNull(power);
+            Console.WriteLine("Мощность кондиционера установлена ​​на {0}", power);
         }
 
         public void SetMode(int mode)
         {
-            Console.WriteLine($"Режим кондиционера установлен на {mode}");
+            ArgumentNullException.ThrowIfNull(mode);
+            Console.WriteLine("Режим кондиционера установлен на {0}",mode);
         }
     }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Лаб7__Мост_
 {
-    interface IImplementor
+    public interface IImplementor
     {
         void On();
         void Off();

@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace Лаб7__Мост_
 {
-    class Remote
+    public class Remote
     {
         protected IImplementor implementor;
+        public int power = 0;
+        public int mode = 0;
 
         public Remote(IImplementor implementor)
         {
+            ArgumentNullException.ThrowIfNull(implementor);
             this.implementor = implementor;
         }
 
@@ -27,33 +30,22 @@ namespace Лаб7__Мост_
 
         public virtual void PowerPlus()
         {
-            implementor.SetPower(Power() + 1);
+            implementor.SetPower(++power);
         }
 
         public virtual void PowerMinus()
         {
-            implementor.SetPower(Power() - 1);
+            implementor.SetPower(--power);
         }
 
-        public virtual void Next()
+        public virtual void ModeNext()
         {
-
+            implementor.SetMode(++mode);
         }
 
-        public virtual void Mode()
+        public virtual void ModePreview()
         {
-            implementor.SetMode(GetMode() + 1);
+            implementor.SetMode(--mode);
         }
-
-        protected virtual int Power()
-        {
-            return 0;
-        }
-
-        protected virtual int GetMode()
-        {
-            return 0;
-        }
-
     }
 }
