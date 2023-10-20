@@ -20,25 +20,26 @@ namespace Лаб7__Мост_
 
         public void SetPower(int power)
         {
-            if (power != 0)
+            if (power > 0)
             {
                 Console.WriteLine("Мощность телевизора установлена ​​на {0}", power);
             }
             else
             {
-                throw new ArgumentException("Значение 'мощности' не может быть равно 0.", nameof(power));
+                throw new ArgumentException("Значение 'мощности' не может быть равно 0 и отрицательно.", nameof(power));
             }
         }
 
         public void SetMode(int mode)
         {
-            if (mode != 0)
+
+            if (mode > 0)
             {
-                Console.WriteLine("Режим ТВ установлен на {0}", mode);
+                Console.WriteLine("Режим телевизора установлен на {0}", mode);
             }
             else
             {
-                throw new ArgumentException("Значение 'режима' не может быть равно 0.", nameof(mode));
+                throw new ArgumentException("Значение 'режима' не может быть равно 0 и отрицательно.", nameof(mode));
             }
         }
     }
