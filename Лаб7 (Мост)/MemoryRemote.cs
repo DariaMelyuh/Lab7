@@ -14,25 +14,33 @@ namespace Лаб7__Мост_
 
         public void Save(int index)
         {
-            ArgumentNullException.ThrowIfNull(index);
-            dictionary[index] = (power, mode);
-            Console.WriteLine("Сохраненный режим {0}: Мощность {1}, Режим {2}", index,power,mode);
+            if (index <= 0)
+            {
+                throw new ArgumentException("index должен быть положительным числом", nameof(index));
+            }
+
+            dictionary[index] = (Power, Mode);
+            Console.WriteLine("Сохраненный режим {0}: Мощность {1}, Режим {2}", index,Power,Mode);
         }
 
         public void Load(int index)
         {
-            ArgumentNullException.ThrowIfNull(index);
+            if (index <= 0)
+            {
+                throw new ArgumentException("index должен быть положительным числом", nameof(index));
+            }
+
             if (dictionary.ContainsKey(index))
             {
                 var d = dictionary[index];
                 int savedPower = d.Power;
                 int savedMode = d.Mode;
 
-                power = savedPower;
-                mode = savedMode;
-                implementor.SetPower(power);
-                implementor.SetMode(mode);
-                Console.WriteLine("Загруженный режим {0}: Мощность {1}, Режим {2}", index, power,mode);
+                Power = savedPower;
+                Mode = savedMode;
+                implementor.SetPower(Power);
+                implementor.SetMode(Mode);
+                Console.WriteLine("Загруженный режим {0}: Мощность {1}, Режим {2}", index, Power,Mode);
             }
             else
             {

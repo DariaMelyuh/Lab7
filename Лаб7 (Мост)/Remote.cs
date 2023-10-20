@@ -8,9 +8,9 @@ namespace Лаб7__Мост_
 {
     public class Remote
     {
-        protected IImplementor implementor;
-        public int power = 0;
-        public int mode = 0;
+        protected IImplementor implementor { get; set; }    
+        public int Power { get; set; }
+        public int Mode { get; set; }  
 
         public Remote(IImplementor implementor)
         {
@@ -30,22 +30,22 @@ namespace Лаб7__Мост_
 
         public virtual void PowerPlus()
         {
-            implementor.SetPower(++power);
+            implementor.SetPower(++Power);
         }
 
         public virtual void PowerMinus()
         {
-            implementor.SetPower(--power);
+            implementor.SetPower(--Power);
         }
 
         public virtual void ModeNext()
         {
-            implementor.SetMode(++mode);
+            implementor.SetMode(++Mode);
         }
 
         public virtual void ModePreview()
         {
-            implementor.SetMode(--mode);
+            implementor.SetMode(--Mode);
         }
     }
 }
