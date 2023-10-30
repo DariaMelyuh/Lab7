@@ -8,7 +8,7 @@ namespace Лаб7__Мост_
 {
     public class Remote
     {
-        protected IImplementor implementor { get; set; }    
+        protected IImplementor implementor { get; private set; }    
         public int Power { get; private set; }
         public int Mode { get;private  set; }  
 
